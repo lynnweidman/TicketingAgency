@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.VenueMapper">
+    <select id="selectVenueById" resultType="model.Venue">
+        SELECT venue_id as venueId, venue_name as venueName, venue_address as venueAddress, venue_max_capacity as venueMaxCapacity from venues WHERE venue_id = #{venueId}
+    </select>
+
+    <select id="selectNameById" resultMap="venueResultMap">
+        SELECT  venue_name as venueName, venue_address as venueAddress from venues WHERE venue_id = #{venueId}
+    </select>
+
+    <insert id="addVenue" >
+        INSERT INTO venues (venue_name, venue_address, venue_max_capacity )VALUES (#{venueName}, #{venueAddress}, #{venueMaxCapacity})
+    </insert>
+
+    <resultMap id="venueResultMap" type="model.Venue" >
+        <id property="venueId" column="venue_id"/>
+        <result property="venueName" column="venue_name"/>
+        <result property="venueAddress" column="venue_address"/>
+       <result property="venueMaxCapacity" column="venue_max_capacity"/>
+    </resultMap>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.EventsMapper">
+    <select id="selectEventById" resultType="model.Event">
+        SELECT event_id as eventId, event_name as eventName, event_date as eventDate, event_type_id
+        as eventTypeId, venue_id as venueId from events WHERE event_id = #{eventId}
+    </select>
+
+    <resultMap id="eventsResultMap" type="model.Event" >
+        <id property="eventId" column="event_id"/>
+        <result property="eventName" column="event_name"/>
+        <result property="eventDate" column="event_date"/>
+        <result property="eventTypeId" column="event_type_id"/>
+        <result property="venueId" column="venue_id"/>
+    </resultMap>
+
+</mapper>

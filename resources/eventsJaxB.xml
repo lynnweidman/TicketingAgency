@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<events>
+    <eventId>100</eventId>
+    <eventName>Cats</eventName>
+    <eventDate>2023-09-10 00:00:00</eventDate>
+    <eventTypeId>4</eventTypeId>
+    <venueId>15</venueId>
+</events>
